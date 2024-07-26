@@ -23,10 +23,11 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('cascade')
                 ->index()
-                ->name('fk_comments_user_id'); 
+                ->name('fk_comments_user_id');
 
             $table->text('comment');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

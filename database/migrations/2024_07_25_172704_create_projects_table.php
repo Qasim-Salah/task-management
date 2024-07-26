@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->date('end_date')->nullable();
             $table->enum('priority', ['low', 'medium', 'high'])->default('medium');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
@@ -29,6 +30,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('project_id')->index();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');

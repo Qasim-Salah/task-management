@@ -6,11 +6,12 @@ use App\Models\Task\Task;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
 class Project extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'projects';
 
@@ -43,7 +44,7 @@ class Project extends Model
     {
         $userId = Auth::id();
         return $query->where('user_id', $userId)
-            ->orWhereHas('members', function($q) use ($userId) {
+            ->orWhereHas('members', function ($q) use ($userId) {
                 $q->where('user_id', $userId);
             });
     }

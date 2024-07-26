@@ -36,6 +36,6 @@ class MatchNewPassword implements Rule
      */
     public function message()
     {
-        return ('لا يمكن أن تتطابق كلمة المرور الحالية مع كلمة المرور الجديدة.');
+        return ('The current password cannot match the new password.');
     }
 }

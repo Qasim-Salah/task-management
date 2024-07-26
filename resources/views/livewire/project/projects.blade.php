@@ -69,6 +69,7 @@
                     <th class="px-4 py-2 text-center">End Date</th>
                     <th class="px-4 py-2 text-center">Priority</th>
                     <th class="px-4 py-2 text-center">Task Count</th>
+                    <th class="px-4 py-2 text-center">Created By</th>
                     <th class="px-4 py-2 text-center">Action</th>
                 </tr>
                 </thead>
@@ -82,25 +83,31 @@
                         <td class="border px-4 py-2 text-center">{{ $project->end_date }}</td>
                         <td class="border px-4 py-2 text-center">{{ ucfirst($project->priority) }}</td>
                         <td class="border px-4 py-2 text-center">{{ ucfirst($project->tasks->count()) }}</td>
+                        <td class="border px-4 py-2 text-center">{{ ucfirst($project->user->name) }}</td>
+
                         <td class="border px-4 py-2 text-center">
-                            <div class="inline-flex space-x-2">
-                                <button wire:click="edit({{ $project->id }})"
-                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Edit
-                                </button>
-                                <button wire:click="delete({{ $project->id }})"
-                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Delete
-                                </button>
-                                <button wire:click="viewTasks({{ $project->id }})"
-                                        class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-1 px-2 rounded">View Tasks
-                                </button>
-                                <button wire:click="openInviteModal({{ $project->id }})"
-                                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">Invite
-                                </button>
-                                <button wire:click="showInvitedUsers({{ $project->id }})"
-                                        class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-1 px-2 rounded">Show Invited Users
-                                </button>
+                            <div x-data="{ open: false }" class="relative inline-block text-left">
+                                <div>
+                                    <button @click="open = !open" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none">
+                                        Actions
+                                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <div x-show="open" @click.away="open = false" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                    <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                        <a href="#" wire:click="edit({{ $project->id }})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Edit</a>
+                                        <a href="#" wire:click="delete({{ $project->id }})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Delete</a>
+                                        <a href="#" wire:click="viewTasks({{ $project->id }})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">View Tasks</a>
+                                        <a href="#" wire:click="openInviteModal({{ $project->id }})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Invite</a>
+                                        <a href="#" wire:click="showInvitedUsers({{ $project->id }})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Show Invited Users</a>
+                                    </div>
+                                </div>
                             </div>
                         </td>
+                        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
                     </tr>
                 @endforeach
                 </tbody>

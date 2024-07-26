@@ -12,7 +12,6 @@ use App\Models\User as UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Validator;
 
 class AuthController extends Controller
@@ -64,7 +63,6 @@ class AuthController extends Controller
             return ResponseBuilder::error($e->getMessage(), 500);
         }
     }
-
 
     public function login(Request $request)
     {
