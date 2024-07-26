@@ -18,6 +18,7 @@ class CreateDevicesTable extends Migration
             $table->string('device_token');
             $table->integer('user_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

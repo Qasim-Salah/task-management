@@ -44,6 +44,8 @@ Route::middleware(['throttle:60,1'])->prefix('v1')->group(function () {
             Route::post('/', 'store');
             Route::post('/{id}', 'update');
             Route::get('/show/{id}/{projectId}', 'show');
+
+            // Creat comment by task
             Route::post('/comment/{task_id}', 'storeComment');
             Route::delete('/delete/{id}/{projectId}', 'destroy');
         });

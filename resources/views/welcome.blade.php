@@ -13,12 +13,12 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="antialiased bg-gray-100 dark:bg-gray-900">
-<div class="relative flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+<body class="antialiased bg-gray-100 selection:bg-red-500 selection:text-white">
+<div class="relative flex items-center justify-center min-h-screen bg-gray-100 selection:bg-red-500 selection:text-white">
     @if (Route::has('login'))
         <div class="absolute top-0 right-0 px-6 py-4 sm:block">
             @auth
-                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
             @endauth
         </div>
     @endif
@@ -31,25 +31,25 @@
         </div>
 
         <div class="mt-8 text-center">
-            <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Welcome to the Task Management System</h1>
-            <p class="mt-4 text-gray-600 dark:text-gray-400 text-lg">Effortlessly manage your projects and tasks in one place.</p>
+            <h1 class="text-4xl font-bold text-gray-900">Welcome to the Task Management System</h1>
+            <p class="mt-4 text-gray-600 text-lg">Effortlessly manage your projects and tasks in one place.</p>
         </div>
 
         <div class="mt-16">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                <a href="{{ route('login') }}" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex items-center motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                <a href="{{ route('login') }}" class="scale-100 p-6 bg-white rounded-lg shadow-2xl shadow-gray-500/20 flex items-center motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                     <div class="text-center w-full">
-                        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Login</h2>
-                        <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                        <h2 class="text-xl font-semibold text-gray-900">Login</h2>
+                        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
                             Already have an account? Log in to manage your tasks and projects.
                         </p>
                     </div>
                 </a>
 
-                <a href="{{ route('register') }}" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex items-center motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                <a href="{{ route('register') }}" class="scale-100 p-6 bg-white rounded-lg shadow-2xl shadow-gray-500/20 flex items-center motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                     <div class="text-center w-full">
-                        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Register</h2>
-                        <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                        <h2 class="text-xl font-semibold text-gray-900">Register</h2>
+                        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
                             New to the system? Register now to start managing your projects and tasks.
                         </p>
                     </div>
@@ -57,8 +57,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 </body>
 </html>

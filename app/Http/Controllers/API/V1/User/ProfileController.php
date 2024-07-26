@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API\V1\User;
 use App\Constants\ErrorCodes;
 use App\Http\Controllers\API\V1\ResponseBuilder;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProfileResource;
+use App\Http\Resources\User\ProfileResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;

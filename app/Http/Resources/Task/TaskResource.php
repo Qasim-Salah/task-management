@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources\Task;
 
-use App\Livewire\TaskComments\TaskComments;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class TaskResource extends JsonResource

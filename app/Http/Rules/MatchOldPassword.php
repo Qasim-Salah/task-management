@@ -39,7 +39,7 @@ class MatchOldPassword implements Rule
         if (app()->getLocale('en')) {
             return 'The :attribute is match with old password.';
         } else {
-            return 'تطابق كلمة المرور القديمة';
+            return 'Match the old password';
         }
     }
 }
