@@ -8,9 +8,7 @@ use Livewire\Component;
 
 class Dashboard extends Component
 {
-    public $recentUsers;
     public $recentProjects;
-    public $projectData;
 
 
     public function mount()

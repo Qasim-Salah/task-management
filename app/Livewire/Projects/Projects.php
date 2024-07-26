@@ -91,7 +91,6 @@ class Projects extends Component
         $this->resetFields();
         $this->isOpen = true;
     }
-
     public function closeModal()
     {
         $this->isOpen = false;

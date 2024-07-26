@@ -70,4 +70,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(CommentTask::class);
     }
+
+    public function device()
+    {
+        return $this->hasOne(Device::class);
+    }
 }
